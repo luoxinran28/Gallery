@@ -1,0 +1,29 @@
+<section data-ng-controller="CrawlerController">
+    <div class="page-header">
+        <h1>Crawler Start Search</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="triggerCrawledData()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="urlSeeds">Type some URL Seeds:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="urlSeeds" id="name" class="form-control" placeholder="http://www.example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <button class="btn btn-default" ng-click="getCrawledData()">Get Result</button>
+    <div data-ng-show="success" class="col-md-12" ng-init="">
+         <a data-ng-repeat="link in crawledLinks" class="list-group-item"> 
+            <span>{{ link }}</span>
+        </a>
+    </div>
+</section>
